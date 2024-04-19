@@ -40,6 +40,7 @@ body{
   display: inline-block;
   background: #0056b3;
   color: #fff !important;
+  max-width: 150px;
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
@@ -97,7 +98,7 @@ input[type="file"] {
 
 /* Styles for the logo */
 .preview .logo {
-  position: relative;
+  position: absolute;
   top: 0;
   right: 0;
   margin-top: 2px;

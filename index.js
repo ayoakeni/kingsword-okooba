@@ -14,13 +14,14 @@ imageInput.addEventListener('change', () => {
 });
 
 processButton.addEventListener('click', () => {
-  const preBox = document.querySelector('.preview');
-  preBox.style.display = 'flex';
-  
   const file = imageInput.files[0];
-  if (!file) {
+  // Preview box
+  const preBox = document.querySelector('.preview');
+  if (file) {
+  preBox.style.display = 'flex';
+  }else{
     alert('Please choose an image');
-    return;
+    return;    
   }
 
   const reader = new FileReader();
@@ -36,6 +37,15 @@ processButton.addEventListener('click', () => {
       // Draw the image
       ctx.drawImage(img, 0, 0);
 
+      // Add text
+      ctx.font = '20px Arial'; // Set font size and type
+      ctx.fillStyle = 'black'; // Set text color
+      ctx.fillText('I am attending Communion Service', 10, 100); // Replace 'Your Text Here' with desired text
+      const textElement = document.createElement('div');
+      textElement.innerText = 'I am attending Communion Service this sunday @kingsword okooba room 22 event center';
+      textElement.classList.add('text');
+      preBox.appendChild(textElement);
+
       // Draw your logo
       const logo = new Image();
       logo.src = 'image/kingsword.png'; // Replace with your logo path
@@ -45,15 +55,6 @@ processButton.addEventListener('click', () => {
         logoElement.src = 'image/kingsword.png'; // Replace with your logo path
         logoElement.classList.add('logo');
         preBox.appendChild(logoElement);
-
-        // Add text
-        ctx.font = '20px Arial'; // Set font size and type
-        ctx.fillStyle = 'black'; // Set text color
-        ctx.fillText('I am attending Communion Service', 10, 100); // Replace 'Your Text Here' with desired text
-        const textElement = document.createElement('div');
-        textElement.innerText = 'I am attending Communion Service this sunday @kingsword okooba room 22 event center';
-        textElement.classList.add('text');
-        preBox.appendChild(textElement);
 
         // Convert the canvas to a data URL
         const dataURL = canvas.toDataURL('image/png');
