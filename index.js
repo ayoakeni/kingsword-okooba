@@ -32,15 +32,15 @@ processButton.addEventListener('click', () => {
     img.onload = function () {
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d');
-      canvas.width = 495; // Set the canvas size to match the template size
-      canvas.height = 495;
+      canvas.width = 500; // Set the canvas size to match the template size
+      canvas.height = 600;
 
       // Draw the template image
       const templateImg = new Image();
       templateImg.onload = function () {
         // Draw the user image on behind of the template
-        ctx.drawImage(img, 127.5, 120, 226, 226); // Adjust position and size as needed
-        ctx.drawImage(templateImg, 0, 0, 495, 495);
+        ctx.drawImage(img, 128, 154, 230, 230); // Adjust position and size as needed
+        ctx.drawImage(templateImg, 0, 0, 500, 600);
 
         const imageURL = canvas.toDataURL('image/png');
         // Update the preview with the modified canvas
