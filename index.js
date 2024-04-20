@@ -39,7 +39,7 @@ processButton.addEventListener('click', () => {
       const templateImg = new Image();
       templateImg.onload = function () {
         // Draw the user image on behind of the template
-        ctx.drawImage(img, 50, 50, 395, 395); // Adjust position and size as needed
+        ctx.drawImage(img, 127.5, 120, 226, 226); // Adjust position and size as needed
         ctx.drawImage(templateImg, 0, 0, 495, 495);
 
         const imageURL = canvas.toDataURL('image/png');
