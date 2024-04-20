@@ -50,6 +50,7 @@ body{
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
