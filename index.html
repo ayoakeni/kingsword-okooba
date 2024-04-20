@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Templates to create a flyer">
+    <meta name="description" content="Template download for kingsword okooba">
     <title>Image with Logo and Text</title>
     <link rel="stylesheet" href="index.css">
     <!-- Source san font -->
@@ -15,15 +15,22 @@
       <h1>Welcome to kingsword Okooba</h1>
       <span>Add your picture to generate template</span>
       <div class="image-file">
-        <div class="file-input-container">
-          <input type="file" id="imageInput" accept="image/*" required>
-          <label for="imageInput" class="custom-file-input">Choose Image</label>
+        <div class="file-pButton">
+          <div class="file-input-container">
+            <input type="file" id="imageInput" accept="image/*" required>
+            <label for="imageInput" class="custom-file-input">Choose Image</label>
+          </div>
+          <button id="processButton">Process Image</button>
         </div>
-        <button id="processButton">Process Image</button>
+        <p id="error-image"></p>
       </div>
-      <div id="container">
-        <div class="preview">
+      <div class="container">
+        <div id="previewBox" class="preview">
+          <div class="logo-img">
+            <img id="logo" src="#">
+          </div>
           <img id="preview" class="immg" src="#">
+          <p id="text"></p>
         </div>
         <button id="downloadButton">Download Template</button>
       </div>
