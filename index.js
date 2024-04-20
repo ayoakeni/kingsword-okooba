@@ -17,10 +17,13 @@ imageInput.addEventListener('change', () => {
 
 processButton.addEventListener('click', () => {
   const file = imageInput.files[0];
-  // Preview box
+  // Error message
   if (!file) {
     errorImage.textContent = 'Please choose an image';
     return;
+  } else {
+    errorImage.textContent = ''; // Clear any previous error messages
+    previewBox.style.display = 'block'; // Show the preview box
   }
 
   const reader = new FileReader();
@@ -35,11 +38,17 @@ processButton.addEventListener('click', () => {
       // Draw the template image
       const templateImg = new Image();
       templateImg.onload = function () {
+        // Draw the user image on behind of the template
+        ctx.drawImage(img, 50, 50, 395, 395); // Adjust position and size as needed
         ctx.drawImage(templateImg, 0, 0, 495, 495);
-        // image
+
         const imageURL = canvas.toDataURL('image/png');
         // Update the preview with the modified canvas
-        document.getElementById('imageContainer').innerHTML = `<img src="${imageURL}" class="preview-image">`;
+        const previewImage = document.createElement('img');
+        previewImage.src = imageURL;
+        previewImage.classList.add('preview-image');
+        document.getElementById('imageContainer').innerHTML = '';
+        document.getElementById('imageContainer').appendChild(previewImage);
         // Show the download button
         downloadButton.style.display = 'inline';
         downloadButton.onclick = function () {
